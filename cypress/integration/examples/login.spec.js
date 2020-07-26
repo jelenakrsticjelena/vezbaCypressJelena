@@ -35,7 +35,7 @@ describe('Login module', () => {
                       .should('have.class', 'alert')
     })
 
-    it(' Login - invalid data - password', () => {
+    it('GA-25 : Login - invalid data - password', () => {
       cy.visit('/')
       cy.get('.nav-link').contains('Login').click()
       cy.get('#email').type('jelllenakrstic@gmail.com')
@@ -45,4 +45,16 @@ describe('Login module', () => {
                       .should('have.text', 'Bad Credentials')
                       .should('have.class', 'alert')
     })
+
+    it('GA-26 : Login - invalid data - username and password', () => {
+      cy.visit('/')
+      cy.get('.nav-link').contains('Login').click()
+      cy.get('#email').type(email)
+      cy.get('#password').type(password)
+      cy.get('[type=submit]').click()
+      cy.get('.alert').should('be.visible')
+                      .should('have.text', 'Bad Credentials')
+                      .should('have.class', 'alert')
+    })
+
   })
