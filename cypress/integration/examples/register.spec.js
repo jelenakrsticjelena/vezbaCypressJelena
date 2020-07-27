@@ -5,7 +5,7 @@ let password = faker.internet.password();
 let firstName = faker.name.firstName();
 let lastName = faker.name.lastName();
 let password2 = faker.internet.password();
-let testPassword = faker.internet.password({min_length = 4, max_length = 7, mix_case = true, special_chars = false});
+
 
 describe('Register module', () => {
     it('GA-9 : Register page test ', () => {
@@ -169,13 +169,13 @@ it('GA-54 : Register page test - Email field required', () => {
                   .should('have.class', 'alert')
   })
 
-  it.only('GA-82 : Password form - invalid', () => {
+  it('GA-82 : Password form - invalid', () => {
     cy.visit('/register')  
     cy.get('#first-name').type(firstName)
     cy.get('#last-name').type(lastName)
     cy.get('#email').type(email)  
-    cy.get('#password').type(password)
-    cy.get('#password-confirmation').type(testPassword)
+    cy.get('#password').type('testetest')
+    cy.get('#password-confirmation').type('testetest')
     cy.get('[type="checkbox"]').check()
     cy.wait(1000)
     cy.get('[type=submit]').click() 
@@ -185,5 +185,36 @@ it('GA-54 : Register page test - Email field required', () => {
                   .should('have.class', 'alert')
   })
 
+  it('GA-83 : Password form - password has less then 8 characters ', () => {
+    cy.visit('/register')  
+    cy.get('#first-name').type(firstName)
+    cy.get('#last-name').type(lastName)
+    cy.get('#email').type(email)  
+    cy.get('#password').type('test2')
+    cy.get('#password-confirmation').type('test2')
+    cy.get('[type="checkbox"]').check()
+    cy.wait(1000)
+    cy.get('[type=submit]').click() 
+    cy.wait(1000)
+    cy.get('.alert').should('be.visible')
+                  .should('have.text', 'The password must be at least 8 characters.')
+                  .should('have.class', 'alert')
+  })
+
+  it.only('GA-84 : User can not register twice', () => {
+    cy.visit('/register')  
+    cy.get('#first-name').type(firstName)
+    cy.get('#last-name').type(lastName)
+    cy.get('#email').type('jelllenakrstic@gmail.com')  
+    cy.get('#password').type('testtest2')
+    cy.get('#password-confirmation').type('testtest2')
+    cy.get('[type="checkbox"]').check()
+    cy.wait(1000)
+    cy.get('[type=submit]').click() 
+    cy.wait(1000)
+    cy.get('.alert').should('be.visible')
+                  .should('have.text', 'The email has already been taken.')
+                  .should('have.class', 'alert')
+  })
 })
 
