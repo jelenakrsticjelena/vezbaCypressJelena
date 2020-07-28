@@ -57,7 +57,7 @@ describe('Register module', () => {
       })
 
 
-    // ucili na casu 27.07.2020. i kako uraditi za Register da bude nevidljivo
+    // ucili na casu 27.07.2020. Pitati kako uraditi za Register da bude nevidljivo
     it('GA-40 : Register page test - First name input field: required', () => {
     cy.get('#first-name').then(($input) => {
       expect($input[0].validationMessage).to.eq('Please fill out this field.')

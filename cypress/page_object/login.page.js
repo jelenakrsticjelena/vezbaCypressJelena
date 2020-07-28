@@ -13,6 +13,7 @@ export default class AuthPage {
         return cy.get('button[type="submit"]')
     }
 
+    // pipati da li smo ovo koristili
     // // get alert() {
     // //     return cy.get('.alert-danger')
     // }

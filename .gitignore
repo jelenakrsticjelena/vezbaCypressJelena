@@ -8,3 +8,5 @@ cypress/reports
 cypress/.DS_Store
 # OS generated files
 .DS_Store
+
+//

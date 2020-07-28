@@ -1,6 +1,6 @@
 
 import { EMAIL } from '../fixtures/constants'
-import {PASSWORD} from '../fixtures/constants'
+import {PASSWORD} from '../fixtures/constants' //pitati zasto je ovo svetlije boje
 import {authPage} from  '../page_object/login.page'
 
 
