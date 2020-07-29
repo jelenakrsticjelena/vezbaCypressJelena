@@ -1,6 +1,5 @@
 
 import { EMAIL } from '../fixtures/constants'
-import {PASSWORD} from '../fixtures/constants' //pitati zasto je ovo svetlije boje
 import {authPage} from  '../page_object/login.page'
 
 
@@ -69,11 +68,11 @@ describe('Login module', () => {
       //                 .should('have.class', 'alert')
     })
 
-    it('GA-25 : Login - invalid data - password', () => {
-     
-      authPage.email.type(EMAIL.EXISTING)
-      authPage.password.type(password)
-      authPage.loginButton.click()
+    it('GA-25 : Login - invalid data - passwordpassword', () => {
+      authPage.login(EMAIL.EXISTING, password)
+      // authPage.email.type(EMAIL.EXISTING)
+      // authPage.password.type(password)
+      // authPage.loginButton.click()
       cy.get('.alert').should('be.visible')
                       .should('have.text', 'Bad Credentials')
                       .should('have.class', 'alert')
