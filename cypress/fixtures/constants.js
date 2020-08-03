@@ -1,6 +1,12 @@
 export const EMAIL = {
     EXISTING: 'jelllenakrstic@gmail.com',
     PASSWORD: 'jelenak1908',
-    //INVALIDEMAIL: 'test',  pitati da li definisati invalid vrednosti
-    //INVALIDPASSWORD: ''
 }
+
+export const GALLERY = {
+    NAME: 'Galerija No name'
+}
+
+//export const listingCount = {
+    
+//}

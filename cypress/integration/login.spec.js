@@ -2,7 +2,6 @@
 import { EMAIL } from '../fixtures/constants'
 import {authPage} from  '../page_object/login.page'
 
-
 const faker = require('faker');
 
 //let email = faker.internet.email();
@@ -68,7 +67,7 @@ describe('Login module', () => {
       //                 .should('have.class', 'alert')
     })
 
-    it('GA-25 : Login - invalid data - passwordpassword', () => {
+    it('GA-25 : Login - invalid data - password', () => {
       authPage.login(EMAIL.EXISTING, password)
       // authPage.email.type(EMAIL.EXISTING)
       // authPage.password.type(password)
