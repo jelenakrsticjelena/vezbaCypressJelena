@@ -7,6 +7,3 @@ export const GALLERY = {
     NAME: 'Galerija No name'
 }
 
-//export const listingCount = {
-    
-//}

@@ -55,7 +55,8 @@ describe('Create new gallery module', () => {
       }   
       });
 
-      it.only('GA-33 : Home Page - paginacija Logged in user 20 galleries', () => {
+     
+      it('GA-33 : Home Page - paginacija Logged in user 20 galleries', () => {
        
         cy.get('.nav-link').contains('Create Gallery').click();
         for (var i = 1; i < 11; i++) {
