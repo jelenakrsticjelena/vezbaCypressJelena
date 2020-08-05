@@ -15,6 +15,10 @@ export default class CreateGallery {
         return cy.get("[type=url]")
     }
 
+    get down(){
+        return cy.get('fa-chevron-circle-down')
+    }
+
     create(tajtl, opis, slike){
         this.title.type(tajtl)
         this.description.type(opis)

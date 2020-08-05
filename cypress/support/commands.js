@@ -45,3 +45,34 @@ Cypress.Commands.add('loginBe', (mejl, pasvord) =>{
     //    cy.visit('/')
     }) 
   })
+
+  Cypress.Commands.add('deleteBe', ()=>{
+    cy.request({
+      //     method: 'DELETE',
+      //     url: Cypress.env('apiUrl')}/galleries/${useCaseID}',
+      //     form: true,
+      //     followRedirect: true,
+      //     headers: {
+        authorization: `Bearer ${window.loicalStorage.getItem('token')}`
+      }
+      )
+  })
+  
+
+  // Cypress.Commands.add('del', (useCaseID) =>{
+    
+  //   cy.request({
+  //     method: 'DELETE',
+  //     url: Cypress.env('apiUrl')}/galleries/${useCaseID}',
+  //     form: true,
+  //     followRedirect: true,
+  //     body: {
+  //       email: mejl,
+  //       password: pasvord,
+  //     }
+  //   }).
+  //   then((resp)=>{
+  //      expect(resp.body).to.have.property('access_token')
+  //      localStorage.setItem('token', resp.body.access_token)
+  //   //    cy.visit('/')
+  //  
