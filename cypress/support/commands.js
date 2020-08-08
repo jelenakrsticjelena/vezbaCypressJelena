@@ -41,21 +41,21 @@ Cypress.Commands.add('loginBe', (mejl, pasvord) =>{
     }).
     then((resp)=>{
        expect(resp.body).to.have.property('access_token')
+       localStorage.setItem('user_id', resp.body.user_id)
        localStorage.setItem('token', resp.body.access_token)
-    //    cy.visit('/')
+       cy.visit('/')
     }) 
   })
 
   Cypress.Commands.add('deleteBe', ()=>{
     cy.request({
-      //     method: 'DELETE',
-      //     url: Cypress.env('apiUrl')}/galleries/${useCaseID}',
-      //     form: true,
-      //     followRedirect: true,
-      //     headers: {
+          method: 'DELETE',
+          url: `Cypress.env('apiUrl')}/galleries/${useCaseID}`,
+          form: true,
+          followRedirect: true,
+          headers: {
         authorization: `Bearer ${window.loicalStorage.getItem('token')}`
-      }
-      )
+      }})
   })
   
 
